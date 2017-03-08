@@ -75,7 +75,6 @@ int main(int argc, char **argv) {
 	socklen_t len_src_addr;
 	
 	char final[DGRAM_MAX];
-	char msg[DGRAM_MAX];
 	
 	if((inet_aton(GROUP,&dst_addr.sin_addr))==0){
 		fprintf(stderr,"Erreur sur inet_aton\n");
@@ -96,17 +95,15 @@ int main(int argc, char **argv) {
  
 	while(1)
 	{
-		//memset(final,0,sizeof(final));
-		//readingLine(final);
+		memset(final,0,sizeof(final));
+		readingLine(final);
 		
-		strcpy(msg,"[vadumont2] : J'ai finis le tp je suis le meilleur !");
 		
 		/* Émission du datagramme */
-		if(sendto(s, msg, strlen(msg)+1, 0, \
+		if(sendto(s, final, strlen(final)+1, 0, \
 	   (struct sockaddr*) &dst_addr, sizeof(dst_addr))==-1) {
 		perror("sendto"); exit(1);
 		}
-		sleep(2);
 	}
 	
 	return 0;
