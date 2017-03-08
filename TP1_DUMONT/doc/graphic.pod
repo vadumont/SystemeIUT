@@ -1,0 +1,65 @@
+=encoding utf8
+ 
+=head1 NAME
+ 
+libgraphic.so - bibliothèque graphique minimaliste.
+ 
+=head1 SYNOPSIS
+ 
+  * void g_init(void);
+  * void g_close(void);
+  * void g_draw(int x, int y, int color);
+  * void g_clear(void);
+  * void g_flush(void);
+  * void g_msleep(int);
+  * void g_srandom(void);
+  * int g_random(void);
+ 
+=head1 DESCRIPTION
+ 
+Pour l'instant très minimaliste donc très peu configurable.
+  - Taille de la fenetre (g_init) : 800x600.
+  - objets affichés (g_draw) : cercle de rayon 10 pixels
+  - NB_COLORS : Nombre de couleurs : 4 {"red", "green", "blue", "yellow" }
+ 
+Fonctions :
+ 
+=over 0
+ 
+=item g_init(void) : 
+ 
+Création de la fenêtre.
+ 
+=item void g_close(void) :
+ 
+Destruction de la fenêtre
+ 
+=item void g_draw(int x, int y, int color) :
+ 
+affichage d'un objet à la position (x,y) et de couleur color.
+ 
+=item g_clear(void) : 
+ 
+Effacement du contenu de la fenêtre.
+ 
+=item void g_flush(void) :
+ 
+Force l'exécution des actions en attente.
+ 
+=item void g_msleep(int) :
+ 
+Dort le nombre spécifié de milli secondes.
+ 
+=item void g_srandom(void) :
+ 
+Initialise une nouvelle séquence de nombres pseudo aléatoires.
+ 
+=item  int g_random(void) :
+ 
+Retourne un entier pseudo aléatoire compris entre 0 et RAND_MAX.
+ 
+=back
+ 
+=head1 SEE ALSO
+ 
+L<intro(8)>

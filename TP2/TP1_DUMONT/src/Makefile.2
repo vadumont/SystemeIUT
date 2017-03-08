@@ -1,0 +1,30 @@
+CC = gcc
+CFLAGS = -Wall
+LDFLAGS = 
+all: editeur warcraft
+
+#Compilations
+
+perso.o: perso.c perso.h video.h
+	$(CC) $(CFLAGS) -c perso.c -o perso.o
+
+video.o: video.c video.h
+	$(CC) $(CFLAGS) -c video.c -o video.o
+
+editeur.o: editeur.c editeur.h perso.h
+	$(CC) $(CFLAGS) -c editeur.c -o editeur.o
+
+warcraft.o: warcraft.c warcraft.h video.h perso.h
+	$(CC) $(CFLAGS) -c warcraft.c -o warcraft.o
+
+
+#Editions de lien
+
+warcraft: warcraft.o video.o perso.o
+	$(CC) $(LDFLAGS) warcraft.o video.o perso.o -o warcraft
+
+editeur: editeur.o video.o perso.o
+	$(CC) $(LDFLAGS) editeur.o video.o perso.o -o editeur
+
+clean:
+	rm -f *.o editeur warcraft

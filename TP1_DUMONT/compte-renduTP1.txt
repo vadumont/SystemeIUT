@@ -1,0 +1,29 @@
+Editeur :
+
+gcc -c editeur.c -o editeur.o
+gcc -c perso.c -o perso.o
+gcc -c video.c -o video.o
+
+gcc editeur.o perso.o video.o -o editeur
+
+
+Warcraft :
+
+gcc -c warcraft.c -o warcraft.o
+
+L'erreur vient du fait qu'on inclut dans warcraft.c video.h et perso.h ! Or perso.h inclut déjà video.h ! Il suffit donc d'inclure uniquement perso.h dans warcraft.c
+
+gcc warcraft.o perso.o video.o -o warcraft
+
+
+
+Makefile :
+
+voir Makefile
+
+
+Makefile 2 :
+
+						
+
+
