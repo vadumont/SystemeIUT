@@ -1,0 +1,1 @@
+kvm -kernel /home/disques/testsi/vmlinuz-3.16.0-4-amd64 -initrd initrd.img-3.16.0-4-amd64 -drive file=debian.disk, snapshot=on -drive file = /home/disques/testsi/jessie.disk -append "root=/dev/sda1" -redir tcp:5555:10.0.2.15:22

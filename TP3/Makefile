@@ -5,9 +5,9 @@ FILELIB = /tmp/graphic/usr/lib/
 FILEGRAPH = /tmp/graphic/usr/include/
 
 
-all:
+all: tgz
 	gcc -c -I $(FILEGRAPH) test.c -o test.o
-	gcc -lpthread -lrt -lX11 -L $(FILELIB) -lgraphic test.o -o test
+	gcc -lpthread -lrt -lX11 -L $(FILELIB) -lgraphic test.o -o test 
 
 tgz:
 	
@@ -15,4 +15,5 @@ tgz:
 
 clean:
 	rm -f *.o test
+	rm -r /tmp/graphic
 

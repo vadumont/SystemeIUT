@@ -45,6 +45,7 @@ void readingLine(char *final)
 	printf("\nVeuillez saisir ce que vous souhaitez envoyer sur le canal multicast :\n\n");
 	if(fgets(msg,DGRAM_MAX,stdin) != NULL)
 	{
+		//msg[strlen(msg)-1]=0;
 		positionEntree = strchr(msg,'\n');
 		if(positionEntree != NULL)
 		{
